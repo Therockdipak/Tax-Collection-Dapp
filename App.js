@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     async function connectToBlockchain() {
+      await window.ethereum.request({ method: "eth_requestAccounts" });
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
